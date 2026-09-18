@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: gestion-inventario-ventas
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/gestion_inventario_ventas?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: ${DB_USERNAME:root}
+    password:  ""
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-secret-in-production-min-256-bits-long}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:30}
+
+  seed:
+    super-user:
+      email: ${SEED_SUPERUSER_EMAIL:superadmin@accesoriosmoto.com}
+      password: ${SEED_SUPERUSER_PASSWORD:SuperAdmin123}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+
+logging:
+  level:
+    org.springframework.security: INFO

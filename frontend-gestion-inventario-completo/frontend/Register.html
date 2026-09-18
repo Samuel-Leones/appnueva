@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar usuario · Gestión de Inventario</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="ASSETS/CSS/styles.css" />
+</head>
+<body class="pagina-auth">
+
+  <main class="contenedor-auth">
+    <div class="tarjeta-auth tarjeta-auth-ancha card shadow-lg border-0">
+      <div class="card-body p-4 p-md-5">
+
+        <div class="text-center mb-4">
+          <div class="logo-marca mb-3">
+            <i class="bi bi-person-plus"></i>
+          </div>
+          <h1 class="h4 fw-bold mb-1">Registrar nuevo usuario</h1>
+          <p class="text-muted small mb-0">Solo un administrador puede crear cuentas nuevas</p>
+        </div>
+
+        <div id="contenedorAlerta"></div>
+        <div id="avisoSinPermiso" class="d-none"></div>
+
+        <form id="formularioRegistro" novalidate>
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="nombreCompleto" class="form-label">Nombre completo</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre y apellido" required />
+              </div>
+              <div class="invalid-feedback d-block" id="errorNombreCompleto"></div>
+            </div>
+
+            <div class="col-12">
+              <label for="correoRegistro" class="form-label">Correo electrónico</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="correoRegistro" name="correo" placeholder="nombre@empresa.com" autocomplete="off" required />
+              </div>
+              <div class="invalid-feedback d-block" id="errorCorreoRegistro"></div>
+            </div>
+
+            <div class="col-12">
+              <label for="rol" class="form-label">Rol</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-shield-check"></i></span>
+                <select class="form-select" id="rol" name="rol" required>
+                  <option value="" selected disabled>Selecciona un rol</option>
+                  <option value="EMPLEADO">Empleado</option>
+                  <option value="ADMINISTRADOR">Administrador</option>
+                  <option value="SUPER_USUARIO">Super usuario</option>
+                </select>
+              </div>
+              <div class="invalid-feedback d-block" id="errorRol"></div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="contrasenaRegistro" class="form-label">Contraseña</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="contrasenaRegistro" name="contrasena" placeholder="Mínimo 8 caracteres" autocomplete="new-password" required />
+                <button class="btn btn-outline-secondary" type="button" id="botonMostrarContrasenaRegistro" tabindex="-1">
+                  <i class="bi bi-eye" id="iconoMostrarContrasenaRegistro"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback d-block" id="errorContrasenaRegistro"></div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="confirmarContrasena" class="form-label">Confirmar contraseña</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                <input type="password" class="form-control" id="confirmarContrasena" placeholder="Repite la contraseña" autocomplete="new-password" required />
+              </div>
+              <div class="invalid-feedback d-block" id="errorConfirmarContrasena"></div>
+            </div>
+
+            <div class="col-12">
+              <div class="barra-fortaleza mt-1" id="barraFortaleza">
+                <div class="barra-fortaleza-relleno" id="rellenoFortaleza"></div>
+              </div>
+              <small class="text-muted" id="textoFortaleza">Fortaleza de la contraseña</small>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold mt-4" id="botonRegistro">
+            <span class="spinner-border spinner-border-sm d-none" id="spinnerRegistro" role="status" aria-hidden="true"></span>
+            <span id="textoBotonRegistro">Registrar usuario</span>
+          </button>
+        </form>
+
+        <p class="text-center small mt-4 mb-0">
+          <a href="tasks.html" class="enlace-marca"><i class="bi bi-arrow-left"></i> Volver al panel</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="ASSETS/JS/config.js"></script>
+  <script src="ASSETS/JS/Register.js"></script>
+</body>
+</html>

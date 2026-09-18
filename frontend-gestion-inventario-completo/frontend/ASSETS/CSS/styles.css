@@ -1,0 +1,510 @@
+/* ============================================================
+   styles.css
+   Paleta: blanco / negro / rojo. Dashboard administrativo.
+   Todo el estilo del proyecto vive en este archivo (sin estilos
+   inline en el HTML).
+   ============================================================ */
+
+:root {
+  --color-rojo: #d62828;
+  --color-rojo-oscuro: #a31f1f;
+  --color-negro: #111111;
+  --color-negro-suave: #1c1c1c;
+  --color-blanco: #ffffff;
+  --color-gris-claro: #f4f5f7;
+  --color-gris-borde: #e5e7eb;
+  --color-texto: #1f2328;
+  --sombra-suave: 0 6px 18px rgba(17, 17, 17, 0.08);
+  --sombra-media: 0 10px 30px rgba(17, 17, 17, 0.12);
+  --radio-borde: 14px;
+
+  /* Sobrescritura de variables de Bootstrap 5.3 para reflejar la paleta */
+  --bs-primary: var(--color-rojo);
+  --bs-primary-rgb: 214, 40, 40;
+  --bs-dark: var(--color-negro);
+  --bs-body-color: var(--color-texto);
+  --bs-body-bg: var(--color-gris-claro);
+}
+
+body {
+  background-color: var(--color-gris-claro);
+  color: var(--color-texto);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ---------------------- Botones y componentes ---------------------- */
+
+.btn-primary {
+  background-color: var(--color-rojo);
+  border-color: var(--color-rojo);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--color-rojo-oscuro) !important;
+  border-color: var(--color-rojo-oscuro) !important;
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--color-negro);
+  border-color: var(--color-negro);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-rojo);
+  box-shadow: 0 0 0 0.2rem rgba(214, 40, 40, 0.15);
+}
+
+.form-check-input:checked {
+  background-color: var(--color-rojo);
+  border-color: var(--color-rojo);
+}
+
+.dropdown-item:active {
+  background-color: var(--color-rojo);
+}
+
+/* ============================================================
+   Pantallas de autenticación (Login / Registro)
+   ============================================================ */
+
+.pagina-auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top left, #262626 0%, var(--color-negro) 55%, #000000 100%);
+  padding: 2rem 1rem;
+}
+
+.contenedor-auth {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tarjeta-auth {
+  width: 100%;
+  max-width: 440px;
+  border-radius: var(--radio-borde);
+  background-color: var(--color-blanco);
+  border-top: 5px solid var(--color-rojo) !important;
+}
+
+.tarjeta-auth-ancha {
+  max-width: 640px;
+}
+
+.logo-marca {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: var(--color-negro);
+  color: var(--color-rojo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.enlace-marca {
+  color: var(--color-rojo);
+  font-weight: 600;
+}
+
+.enlace-marca:hover {
+  color: var(--color-rojo-oscuro);
+}
+
+.barra-fortaleza {
+  height: 6px;
+  width: 100%;
+  border-radius: 999px;
+  background-color: var(--color-gris-borde);
+  overflow: hidden;
+}
+
+.barra-fortaleza-relleno {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background-color: var(--color-rojo);
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+/* ============================================================
+   Panel principal (dashboard)
+   ============================================================ */
+
+.pagina-panel {
+  background-color: var(--color-gris-claro);
+}
+
+.navbar-marca {
+  background-color: var(--color-negro) !important;
+  box-shadow: var(--sombra-suave);
+}
+
+.navbar-marca .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar-marca .nav-link:hover {
+  color: var(--color-rojo);
+}
+
+.avatar-usuario {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rol-usuario {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.contenedor-panel {
+  padding-top: 90px;
+  padding-bottom: 2rem;
+}
+
+/* Tarjetas resumen */
+
+.tarjeta-resumen {
+  border: none;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tarjeta-resumen:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.icono-resumen {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--color-blanco);
+}
+
+.bg-icono-rojo {
+  background-color: var(--color-rojo);
+}
+
+.bg-icono-negro {
+  background-color: var(--color-negro);
+}
+
+.bg-icono-alerta {
+  background-color: #e07a1a;
+}
+
+/* Tarjeta de la tabla */
+
+.tarjeta-tabla {
+  border: none;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+}
+
+.tabla-productos thead th {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: none;
+  white-space: nowrap;
+}
+
+.tabla-productos thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.tabla-productos thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.tabla-productos tbody tr:hover {
+  background-color: rgba(214, 40, 40, 0.05);
+}
+
+.tabla-productos td {
+  vertical-align: middle;
+}
+
+.codigo-producto {
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  color: var(--color-negro);
+}
+
+.nombre-producto {
+  font-weight: 600;
+}
+
+.descripcion-producto {
+  font-size: 0.78rem;
+  color: #6c757d;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge-estado {
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 0.4em 0.7em;
+  border-radius: 999px;
+}
+
+.badge-disponible {
+  background-color: #1f9d55;
+  color: var(--color-blanco);
+}
+
+.badge-stock-bajo {
+  background-color: #e07a1a;
+  color: var(--color-blanco);
+}
+
+.badge-agotado {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+.boton-accion-fila {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+/* ---------------------- Utilidades ---------------------- */
+
+.pila-vacia {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+.pila-vacia i {
+  font-size: 2rem;
+  color: var(--color-gris-borde);
+}
+
+@media (max-width: 767.98px) {
+  .contenedor-panel {
+    padding-top: 100px;
+  }
+}
+
+/* ---------------------- Navbar: enlace activo ---------------------- */
+
+.navbar-marca .nav-link.activo {
+  color: var(--color-blanco);
+  font-weight: 700;
+  position: relative;
+}
+
+.navbar-marca .nav-link.activo::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: -2px;
+  height: 2px;
+  background-color: var(--color-rojo);
+  border-radius: 2px;
+}
+
+.navbar-marca .navbar-nav {
+  flex-wrap: wrap;
+}
+
+/* ---------------------- Tabs de sección (reportes) ---------------------- */
+
+.nav-tabs .nav-link {
+  color: var(--color-texto);
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--color-rojo);
+  border-bottom-color: var(--color-rojo);
+  background: transparent;
+}
+
+/* ---------------------- Badges de estado genéricos ---------------------- */
+
+.badge-pendiente {
+  background-color: #6c757d;
+  color: var(--color-blanco);
+}
+
+.badge-completada {
+  background-color: #1f9d55;
+  color: var(--color-blanco);
+}
+
+.badge-anulada {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+.badge-activa {
+  background-color: #1f9d55;
+  color: var(--color-blanco);
+}
+
+.badge-eliminada {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+.badge-entrada {
+  background-color: #1f9d55;
+  color: var(--color-blanco);
+}
+
+.badge-salida {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+.badge-creacion {
+  background-color: #1f9d55;
+  color: var(--color-blanco);
+}
+
+.badge-actualizacion {
+  background-color: #e07a1a;
+  color: var(--color-blanco);
+}
+
+.badge-eliminacion {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+/* ---------------------- Punto de venta (ventas.html) ---------------------- */
+
+.tarjeta-carrito {
+  border: none;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  position: sticky;
+  top: 100px;
+}
+
+.fila-carrito td {
+  vertical-align: middle;
+}
+
+.resumen-totales {
+  background-color: var(--color-gris-claro);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.resumen-totales .fila-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.15rem 0;
+}
+
+.resumen-totales .fila-total.total-final {
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-top: 1px solid var(--color-gris-borde);
+  margin-top: 0.4rem;
+  padding-top: 0.5rem;
+}
+
+.factura-encabezado {
+  border-bottom: 2px dashed var(--color-gris-borde);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.numero-factura {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  color: var(--color-rojo);
+}
+
+/* ---------------------- Timeline auditoría ---------------------- */
+
+.linea-tiempo-item {
+  border-left: 3px solid var(--color-gris-borde);
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin-left: 0.5rem;
+  position: relative;
+}
+
+.linea-tiempo-item::before {
+  content: "";
+  position: absolute;
+  left: -7.5px;
+  top: 1rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-rojo);
+}
+
+/* ---------------------- Tarjetas KPI reportes ---------------------- */
+
+.tarjeta-kpi {
+  border: none;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 1.25rem;
+  height: 100%;
+}
+
+.tarjeta-kpi .kpi-valor {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.tarjeta-kpi .kpi-etiqueta {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+/* ---------------------- Selector de producto en formularios ---------------------- */
+
+.info-producto-seleccionado {
+  background-color: var(--color-gris-claro);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+}
